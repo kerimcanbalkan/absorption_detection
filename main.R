@@ -1,6 +1,6 @@
 library(FITSio)
 library(formattable)
-setwd("../data")
+setwd("./data")
 myevent <- dir()[2]
 data <- readFITS(file = myevent)
 
@@ -40,8 +40,8 @@ for (i in 2:(length(flux))) {
       sequence_start_index <- i - 1
     }
     increasing_sequence <- FALSE
-    # Flux bir oncekinden buyuk mu? artisin devam edip etmedigini gormek icin bir sonraki degeri de kontrol ediyor
-  } else if (flux[i] > flux[i-1] && flux[i+1] > flux[i]) {
+    # Flux bir oncekinden buyuk mu?
+  } else if (flux[i] > flux[i-1]) {
     # decreasing_sequence true ise durdur
     if (decreasing_sequence) {
       # dip noktasi atamasi
